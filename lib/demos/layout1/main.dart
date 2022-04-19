@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// See also:
+/// 1. https://flutter.cn/docs/development/ui/interactive
 main() {
   runApp(const MaterialApp(home: Home()));
 }
@@ -29,7 +31,7 @@ class Home extends StatelessWidget {
       body: ListView(
         children: [
           Image.asset(
-            'assets/images/lake.jpg',
+            'assets/images/lake.jpeg',
             width: 600.0,
             height: 240.0,
             fit: BoxFit.cover,
@@ -75,15 +77,18 @@ class Home extends StatelessWidget {
                 '''Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situated 1,578 meters above sea level, it is one of the larger Alpine Lakes. A gondola ride from Kandersteg, followed by a half-hour walk through pastures and pine forest, leads you to the lake, which warms to 20 degrees Celsius in the summer. Activities enjoyed here include rowing, and riding the summer toboggan run.
             '''),
           ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.star, color: Colors.green[500]),
-              Icon(Icons.star, color: Colors.green[500]),
-              Icon(Icons.star, color: Colors.green[500]),
-              const Icon(Icons.star, color: Colors.black),
-              const Icon(Icons.star, color: Colors.black),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.star, color: Colors.green[500]),
+                Icon(Icons.star, color: Colors.green[500]),
+                Icon(Icons.star, color: Colors.green[500]),
+                const Icon(Icons.star, color: Colors.black),
+                const Icon(Icons.star, color: Colors.black),
+              ],
+            ),
           )
         ],
       ),
