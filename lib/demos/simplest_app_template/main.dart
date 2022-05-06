@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// 示例：一个最简单 App 应用 (可作为 demo template)
+/// 示例：一个最简单 App 应用
 ///
 /// main 函数是 app 的主入口，
 /// 如果想要接受命令行参数，可以给 main 函数添加 `List<String> args` 参数

@@ -1,66 +1,60 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(const MaterialApp(home: Home()));
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Home> createState() => _HomeState();
 }
 
-class _MyAppState extends State<MyApp> {
-  int count = 0;
-  late VoidCallback _incrementer;
+class _HomeState extends State<Home> {
+  int _count = 0;
+  late VoidCallback _increment;
 
   @override
   void initState() {
     super.initState();
 
-    _incrementer = () {
-      setState(() {
-        count++;
-      });
+    _increment = () {
+      setState(() => _count++);
     };
   }
 
   @override
   Widget build(BuildContext context) {
-    // 输出 count 可以看出是不断递增的,也就是说, MyApp Widget 实例是每次重新构建的, 但 state 实例并不变, 所以 widget 的状态可以保持连续.
-    debugPrint('MyApp is building: count:$count');
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: Center(
-          child: SharingDataWidget(
-            count: count,
-            child: Column(
-              children: [
-                const WidgetA1(),
-                const WidgetB(),
-                WidgetC(onTap: _incrementer),
-              ],
-            ),
+    // 可以看出打印的 count 是不断递增的,也就是说, 实例是每次重新构建的,
+    // 但 state 实例并不变, 所以 widget 的状态可以保持连续.
+    debugPrint('Count: $_count');
+    return Scaffold(
+      appBar: AppBar(title: const Text('Count demo')),
+      body: Center(
+        child: SharingDataWidget(
+          count: _count,
+          child: Column(
+            children: [
+              const Widget3(),
+              const Widget2(),
+              WidgetC(onTap: _increment),
+            ],
           ),
-          // child: Column(
-          //   children: [
-          //     WidgetA(
-          //       count: _count,
-          //     ),
-          //     WidgetB(),
-          //     WidgetC(
-          //       onTap: () {
-          //         setState(() {
-          //           _count++;
-          //         });
-          //       },
-          //     ),
-          //   ],
-          // ),
         ),
+        // child: Column(
+        //   children: [
+        //     WidgetA(
+        //       count: _count,
+        //     ),
+        //     WidgetB(),
+        //     WidgetC(
+        //       onTap: () {
+        //         setState(() {
+        //           _count++;
+        //         });
+        //       },
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }
@@ -72,24 +66,24 @@ class WidgetA extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('Building Widget A');
+    debugPrint('Building: Widget A');
     return Text('$count');
   }
 }
 
 // WidgetA 中需要的状态数据是需要在构造实例时传入, 这个类是一个变体,
 // 使用了 SharingDataWidget 中的数据, 因此就不用在构造函数中传值了.
-class WidgetA1 extends StatefulWidget {
-  const WidgetA1({Key? key}) : super(key: key);
+class Widget3 extends StatefulWidget {
+  const Widget3({Key? key}) : super(key: key);
 
   @override
-  State<WidgetA1> createState() => _WidgetA1State();
+  State<Widget3> createState() => _Widget3State();
 }
 
-class _WidgetA1State extends State<WidgetA1> {
+class _Widget3State extends State<Widget3> {
   @override
   Widget build(BuildContext context) {
-    debugPrint('Building Widget A1');
+    debugPrint('Building: Widget3');
     // 这里显示的值改为从 SharingDataWidget 中获取了,
     // 换句话说: WidgetA1 依赖于 SharingDataWidget
     // 如果 SharingDataWidget 的 updateShouldNotify 强制返回 false 表示不通知依赖的 widget, 则这里的值会永远保持旧的, 尽管 SharingDataWidget 实例的最新值已经更新了,
@@ -104,23 +98,23 @@ class _WidgetA1State extends State<WidgetA1> {
   }
 }
 
-class WidgetB extends StatelessWidget {
-  const WidgetB({Key? key}) : super(key: key);
+class Widget2 extends StatelessWidget {
+  const Widget2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('Building Widget B');
-    return const Text('I am Widget B');
+    debugPrint('Building: Widget B');
+    return const Text('Widget B');
   }
 }
 
 class WidgetC extends StatelessWidget {
-  final VoidCallback onTap;
   const WidgetC({Key? key, required this.onTap}) : super(key: key);
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('Building Widget C');
+    debugPrint('Building: Widget C');
     return TextButton(
       onPressed: onTap,
       child: const Text('Count'),

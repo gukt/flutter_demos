@@ -5,21 +5,18 @@ import 'package:flutter/material.dart';
 
 // 这是手工实现的一个最简单的 Provider,
 // 利用了 InheritedWidget
-void main() => runApp(const MyApp());
+void main() => runApp(const MaterialApp(home: Home()));
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const ProviderRoute(),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Material App Bar'),
       ),
+      body: const ProviderRoute(),
     );
   }
 }

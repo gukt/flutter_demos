@@ -8,9 +8,9 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      child: const Center(child: Text('Go to second page')),
+      child: const Center(child: Text('Second page')),
       onPressed: () {
-        //导航到新路由
+        // 导航到新路由
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const Second()),

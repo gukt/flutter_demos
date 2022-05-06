@@ -17,32 +17,12 @@ void main() {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-
   // 不要使用 print 方法，而是使用 debugPrint
   debugPrint('App is starting.');
-
   // 设计界面先从定义一个 Widget 开始，然后在 main 函数里使用 runApp 来启动它
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Hello Flutter',
-      theme: ThemeData(primaryColor: Colors.blue),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Welcome to flutter'),
-        ),
-        body: const Center(
-          child: RandomWords(),
-        ),
-      ),
-    );
-  }
+  runApp(const MaterialApp(
+    home: RandomWords(),
+  ));
 }
 
 class RandomWords extends StatefulWidget {
@@ -150,7 +130,7 @@ class _RandomWordsState extends State<RandomWords> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Startup Name Generator'),
+        title: const Text('Words List'),
         actions: <Widget>[
           IconButton(icon: const Icon(Icons.list), onPressed: _pushSaved),
         ],

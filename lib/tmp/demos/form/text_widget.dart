@@ -4,9 +4,7 @@ main() {
   runApp(MaterialApp(
     home: Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Hello world',
-        ),
+        title: const Text('Hello world'),
       ),
       body: const Text(
         'ABC worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello worldHello world',
