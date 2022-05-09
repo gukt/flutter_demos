@@ -91,7 +91,7 @@ class Widget2 extends StatelessWidget {
 // 主要通过 context.dependOnInheritedWidgetOfExactType 来向上查找最接近的候选者。
 // 而什么适合需要更新又有依赖的子节点，是由 InheritedWidget#updateShouldNotify 来决定的
 class SharingDataWidget extends InheritedWidget {
-  // 该变量是 final 的，也就是说，外部不能对它进行更改，只能由它所在的父 Widget 重新构建???
+  // 该变量是 final 的，也就是说，外部不能对它进行更改，只能由它所在的父 Widget 重新构建
   final int count;
 
   const SharingDataWidget({
