@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+/// 一个简单的可展开的浮动按钮菜单效果
+///
+/// 更详细的控制请参考这个插件：https://pub.dev/packages/flutter_speed_dial
 void main() {
   runApp(const MaterialApp(home: Home()));
 }
