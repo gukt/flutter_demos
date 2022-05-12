@@ -35,6 +35,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   get:
   english_words: ^4.0.0
+  transparent_image: ^2.0.0
+  cached_network_image: ^3.2.0
+  path_provider: ^2.0.9
 
 dev_dependencies:
   flutter_test:
@@ -62,7 +65,9 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
+    # 如果要包含一个目录下的所有 assets，需要在目录名称的结尾加上 /
     - assets/images/lake.jpeg
+    - assets/images/loading.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
