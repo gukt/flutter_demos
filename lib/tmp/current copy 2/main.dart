@@ -23,7 +23,6 @@ class _HomeState extends State<Home> {
       // 第一个转换(在第41行)实现了透视图。透视使远处的物体显得更小。将矩阵的第3行第2列设置为0.001，根据它们的距离将它们缩小。
       // 0.001这个数字从何而来?稀薄的空气!你可以使用这个数字来增加和减少视角的数量，就像在相机上使用变焦镜头进行放大和缩小一样。这个数字越大，透视就越明显，这让你看起来更接近被观察的对象。
 // Flutter 确实提供了makePerspectiveMatrix函数，但该方法包含了设置纵横比、视场、近面和远面(aspect ratio, field of view, and near and far planes )的参数—远远超出了我们的需要—因此我们将直接设置矩阵所需的元素。
-
       transform: Matrix4.identity()
         ..setEntry(3, 2, 0.001) // perspective
         ..rotateX(_offset.dy)
