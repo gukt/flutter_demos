@@ -6,7 +6,135 @@ import 'dart:convert';
 import 'package:flutter_picker/flutter_picker.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'picker_data.dart';
+const PickerData = '''
+[
+    {
+        "a": [
+            {
+                "a1": [
+                    1,
+                    2,
+                    3,
+                    4
+                ]
+            },
+            {
+                "a2": [
+                    5,
+                    6,
+                    7,
+                    8,
+                    555,
+                    666,
+                    999
+                ]
+            },
+            {
+                "a3": [
+                    9,
+                    10,
+                    11,
+                    12
+                ]
+            }
+        ]
+    },
+    {
+        "b": [
+            {
+                "b1": [
+                    11,
+                    22,
+                    33,
+                    44
+                ]
+            },
+            {
+                "b2": [
+                    55,
+                    66,
+                    77,
+                    88,
+                    99,
+                    1010,
+                    1111,
+                    1212,
+                    1313,
+                    1414,
+                    1515,
+                    1616
+                ]
+            },
+            {
+                "b3": [
+                    1010,
+                    1111,
+                    1212,
+                    1313,
+                    1414,
+                    1515,
+                    1616
+                ]
+            }
+        ]
+    },
+    {
+        "c": [
+            {
+                "c1": [
+                    "a",
+                    "b",
+                    "c"
+                ]
+            },
+            {
+                "c2": [
+                    "aa",
+                    "bb",
+                    "cc"
+                ]
+            },
+            {
+                "c3": [
+                    "aaa",
+                    "bbb",
+                    "ccc"
+                ]
+            },
+            {
+                "c4": [
+                    "a1",
+                    "b1",
+                    "c1",
+                    "d1"
+                ]
+            }
+        ]
+    }
+]
+    ''';
+
+const PickerData2 = '''
+[
+    [
+        1,
+        2,
+        3,
+        4
+    ],
+    [
+        11,
+        22,
+        33,
+        44
+    ],
+    [
+        "aaa",
+        "bbb",
+        "ccc"
+    ]
+]
+    ''';
 
 final String _fontFamily = Platform.isWindows ? "Roboto" : "";
 
@@ -18,6 +146,13 @@ const Set<PointerDeviceKind> _kTouchLikeDeviceTypes = <PointerDeviceKind>{
   PointerDeviceKind.unknown
 };
 
+///
+/// See also:
+/// 1. https://blog.csdn.net/qq_41070101/article/details/108088700
+/// 2. https://pub.dev/packages/flex_color_picker#flexcolorpicker
+/// 3. https://pub.dev/packages/flutter_material_pickers
+/// 4. https://morioh.com/p/968eb64693de
+/// 5. https://fluttergems.dev/generic-picker/
 void main() => runApp(
       MaterialApp(
         theme: ThemeData(

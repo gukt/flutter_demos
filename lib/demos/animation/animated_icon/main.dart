@@ -39,6 +39,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     return Scaffold(
       body: Center(
         child: AnimatedIcon(
+          // 这里必须是 AnimatedIconData，Flutter 默认提供了 14 个
           icon: AnimatedIcons.view_list,
           progress: _animationController,
         ),

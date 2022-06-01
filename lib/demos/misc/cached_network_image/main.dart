@@ -14,7 +14,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const imageUrl =
-        'https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500';
+        'https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?cs=srgb&dl=pexels-roshan-kamath-1661179.jpg&fm=jpg';
     const gifUrl =
         'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif';
     return Scaffold(

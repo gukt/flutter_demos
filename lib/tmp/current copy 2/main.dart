@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    home: Page1(),
-  ));
-}
+void main() => runApp(const MaterialApp(home: Home()));
 
-class Page1 extends StatelessWidget {
-  const Page1({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Page1'),
-      ),
+      appBar: AppBar(title: const Text('Page1')),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
@@ -27,8 +21,8 @@ class Page1 extends StatelessWidget {
   }
 }
 
-class Page2 extends StatelessWidget {
-  const Page2({Key? key}) : super(key: key);
+class Second extends StatelessWidget {
+  const Second({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +37,7 @@ class Page2 extends StatelessWidget {
 
 Route _createRoute() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const Page2(),
+    pageBuilder: (context, animation, secondaryAnimation) => const Second(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       const begin = Offset(0.0, 1.0);
       const end = Offset.zero;

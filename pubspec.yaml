@@ -42,6 +42,8 @@ dependencies:
   path_provider: ^2.0.9
   flutter_sticky_header: ^0.6.3
   flutter_picker: ^2.0.3
+  # https://pub.dev/packages/page_animation_transition
+  page_animation_transition: ^0.0.9
 
 dev_dependencies:
   flutter_test:
