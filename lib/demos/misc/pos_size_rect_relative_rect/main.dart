@@ -254,7 +254,7 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       child: text,
       onPressed: () {
-        onTap?.call(context);
+        onTap?.run(context);
       },
     );
   }
