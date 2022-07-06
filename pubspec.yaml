@@ -18,7 +18,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=2.16.2 <3.0.3"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -41,9 +41,25 @@ dependencies:
   cached_network_image: ^3.2.0
   path_provider: ^2.0.9
   flutter_sticky_header: ^0.6.3
-  flutter_picker: ^2.0.3
+  # TODO 启用这里的依赖后， 将demos/picker 下的 day_picker, calender_picker, time_picker, year_picker 注释打开并检查错误
+  # flutter_picker: ^2.0.3
   # https://pub.dev/packages/page_animation_transition
   page_animation_transition: ^0.0.9
+  # https://pub.dev/packages/flutter_spinbox
+  flutter_spinbox: ^0.9.0
+  # https://pub.dev/packages/charts_flutter
+  charts_flutter: ^0.12.0
+
+# Fix warnings for Flutter 3.0 - Warning: Operand of null-aware operation '!' has type 'SchedulerBinding' which excludes null. #765 (charts_flutter):
+# https://github.com/google/charts/issues/771
+# 也可以直接修改源代码，去掉发生警告处的 '!'，然后等待官方修复。
+dependency_overrides:
+  # add override of charts_flutter
+  charts_flutter:
+    git:
+      url: https://github.com/kennenfromchina/charts.git
+      path: charts_flutter
+      ref: fix_flutter3.0
 
 dev_dependencies:
   flutter_test:
